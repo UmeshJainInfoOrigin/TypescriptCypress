@@ -73,6 +73,7 @@ export default defineConfig({
   },
   viewportHeight: 1080,
   viewportWidth: 1920,
+  projectId: "ac7j1u",
   e2e: {
     specPattern: 'cypress/integration/**/*.feature',
     setupNodeEvents,
