@@ -1,0 +1,20 @@
+{
+    "allStatusCode" : {
+        "statusCodeOK" : 200,
+        "statusCodeCreated" : 201,
+        "statusCodeAccepted" : 202,
+        "statusCodeNonAuthoritative" : 203,
+        "statusCodeNoContent" : 204,
+        "statusCodeResetContent" : 205,
+        "statusCodePartialContent" : 206,
+        "statusCodeMultiStatus" : 207,
+        "statusCodeAlreadyReported" : 208,
+        "statusCodeIMUsed" : 226,
+        "MovedPermanently" : 301,
+        "statusCodeFound": 302,
+        "statusCodeSeeOther": 303,
+        "statusCodeForbidden" : 403,
+        "statusCodeNotFound" : 404,
+        "statusCodeUnavailable" : 451
+}
+}

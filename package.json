@@ -1,19 +1,30 @@
 {
   "name": "typescriptcypress",
   "version": "1.0.0",
-  "description": "typescript cypress project",
-  "main": "index.ts",
+  "description": "",
+  "main": "index.js",
+  "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^16.0.3",
+    "@cypress/browserify-preprocessor": "^3.0.2",
+    "cypress": "^12.9.0",
+    "cypress-plugin-snapshots": "^1.4.4",
+    "cypress-sql-server": "^1.0.0",
+    "typescript": "^5.0.4"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/UmeshJainInfoOrigin/TypescriptCypress.git"
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true,
+    "stepDefinitions": [
+      "cypress/integration/**/*.spec.ts"
+    ],
+    "json": {
+      "enabled": true,
+      "output": "cypress/cucumberReports/results.json"
+    }
   },
-  "author": "Info Origin",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/UmeshJainInfoOrigin/TypescriptCypress/issues"
-  },
-  "homepage": "https://github.com/UmeshJainInfoOrigin/TypescriptCypress#readme"
+  "author": "",
+  "license": "ISC"
+  
 }
