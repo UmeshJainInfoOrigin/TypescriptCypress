@@ -6,7 +6,7 @@ import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 
 const fixtureCommonJson = function () {
    console.log('fixtureCommonJson')
-        cy.fixture('Library/apiGet').then(function (apiGetData) {
+        cy.fixture('library/apiGet').then(function (apiGetData) {
             this.apiGetData = apiGetData
             console.log("response", this.apiGetData);
         })
@@ -21,7 +21,7 @@ const fixtureCommonJson = function () {
  Given('Actor calls Library API for posting data', function() {
      console.log('Actor calls Library API for posting data')
              let r = (Math.random() + 1).toString(36).substring(7);
-        cy.fixture('Library/apiPost').then(function (apiPostData) {
+        cy.fixture('library/apiPost').then(function (apiPostData) {
             this.apiPostData = apiPostData
             this.apiPostData.isbn = r
             console.log("payload", this.apiPostData);
@@ -44,7 +44,7 @@ const fixtureCommonJson = function () {
 
  Given ('Actor calls Library API with payload', function(){
     console.log('Actor calls Library API with payload')
-    cy.fixture('Library/apiGet').then(function (apiGetData) {
+    cy.fixture('library/apiGet').then(function (apiGetData) {
     this.apiGetData = apiGetData
     console.log("response", this.apiGetData);
 })
@@ -52,7 +52,7 @@ const fixtureCommonJson = function () {
 
 Given ('Actor calls Library API and read using AS keyword', function(){
     console.log('Actor calls Library API and read using AS keyword')
-    cy.fixture('Library/apiGet').as('apiGetData')
+    cy.fixture('library/apiGet').as('apiGetData')
 })
 
  
@@ -72,7 +72,7 @@ Given ('Actor calls Library API and read using AS keyword', function(){
     cy.request('GET', Cypress.env('apiGet')).then(function (response) {
      console.log('fetched response from api', response)
         expect(response.body[0], 'response body').to.include(
-            this.apiGetData)
+            apiGetData)
             
         expect(response.status).to.eq(Cypress.env('allcode').statusCodeSuccessA)
         console.log('end..')
