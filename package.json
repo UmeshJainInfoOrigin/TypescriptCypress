@@ -7,7 +7,7 @@
     "@badeball/cypress-cucumber-preprocessor": "^16.0.3",
     "@cypress/browserify-preprocessor": "^3.0.2",
     "cypress": "^12.9.0",
-    "cypress-plugin-snapshots": "^1.4.4",
+   
     "cypress-sql-server": "^1.0.0",
     "mocha": "^10.2.0",
     "multiple-cucumber-html-reporter": "^3.3.0",
