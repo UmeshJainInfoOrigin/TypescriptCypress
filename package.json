@@ -7,6 +7,7 @@
     "@badeball/cypress-cucumber-preprocessor": "^16.0.3",
     "@cypress/browserify-preprocessor": "^3.0.2",
     "cypress": "^12.9.0",
+    "cypress-ag-grid": "^2.0.2",
     "cypress-iframe": "^1.0.1",
     "cypress-plugin-snapshots": "^1.4.4",
     "cypress-sql-server": "^1.0.0",
@@ -20,7 +21,7 @@
     "chromeTest": "npm run test --browser chrome",
     "cloud": "npm run test --record --key bb9862d7-e9d1-469c-b32f-6ee9fcdfcdf5 --reporter mochawesome --spec cypress/integration/examples/BDD/*.feature",
     "greenKartTest": "npm run test --spec \"cypress/integration/GreenKart/*\"",
-    "tag": "npx cypress run --env tags=@healthcheck",
+    "tag": "npx cypress run --env tags=@healthcheck --headed --browser chrome",
     "env": "npx cypress run --spec cypress/integration/**/*.feature"
   },
   "cypress-cucumber-preprocessor": {
