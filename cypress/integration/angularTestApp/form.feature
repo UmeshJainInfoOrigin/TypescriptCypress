@@ -33,16 +33,6 @@ Given Actor on Test App home page
 When Actor select Dark mode
 Then Actor verifies Dark mode is implemented
 
-Scenario: WebTable Manipulations
-Given Actor on Test App home page
-When Actor click on Table&Data Smart Table   
-Then Actor modify Larry age
-Then Actor add new row and verify it
-Then Actor delete the row with confirm click
-Then Actor delete the row with cancel click
-Then Actor filter using row column and verify
-
-
 Scenario: Tool tip validation
 Given Actor on Test App home page
 When Actor click default button on colored tooltip

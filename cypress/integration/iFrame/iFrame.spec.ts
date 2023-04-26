@@ -18,12 +18,10 @@ Then("Actor click {string} and validate", (desireLink:string) =>{
 
 Then("Actor visited w3schools", () =>{
     cy.visit("https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_text_readonly2")
-        cy.frameLoaded("iframe#iframeResult[allowfullscreen='true']")
-        cy.iframe().find('#myText').type('hello')
-        cy.iframe().find("button").contains("Try it").click()
-        cy.iframe().find('#myText').should('have.attr', 'readonly')
+        //cy.frameLoaded("#iframeResult[allowfullscreen='true']")
+        cy.frameLoaded("#iframeResult")
+        cy.iframe("#iframeResult").find('#myText').type('hello')
+        cy.iframe("#iframeResult").find("button").contains("Try it").click()
+        cy.iframe("#iframeResult").find('#myText').should('have.attr', 'readonly')
 })
- 
-
- 
-    
+     

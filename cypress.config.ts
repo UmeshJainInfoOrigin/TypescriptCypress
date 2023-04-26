@@ -4,6 +4,8 @@ import sqlServer, { DbConfig } from 'cypress-sql-server';
 import { addCucumberPreprocessorPlugin } from "@badeball/cypress-cucumber-preprocessor";
 import browserify from "@badeball/cypress-cucumber-preprocessor/browserify";
 import { initPlugin } from 'cypress-plugin-snapshots/plugin';
+import excelToJson = require("convert-excel-to-json");
+import fs = require('fs');
 
 interface DbConfig {
   userName: string;
@@ -46,16 +48,28 @@ async function setupNodeEvents(
   };
   const tasks = sqlServer.loadDBPlugin(db);
   on('task', tasks);
+//Below is required to use NodeJS instead of brower to read the file
+on('task',{
 
+  excelToJsonConverter(filePath)
+  {
+    const result = excelToJson({
+    source: fs.readFileSync(filePath) // fs.readFileSync return a Buffer
+  });
+  return result;
+  }
+})
   // Make sure to return the config object as it might have been modified by the plugin.
   return config;
 }
 
 export default defineConfig({
+  
   env: {
     url: "https://rahulshettyacademy.com",
     apiPost: "http://216.10.245.166/Library/Addbook.php",
     apiGet: "http://216.10.245.166/Library/GetBook.php?ID=Umesh14278674",
+    
     allStatuscode: {
       statusCodeSuccessA: 200,
     },
@@ -71,10 +85,12 @@ export default defineConfig({
     }
 
   },
+  
   viewportHeight: 1080,
   viewportWidth: 1920,
   projectId: "ac7j1u",
   e2e: {
+    hideXHR: true,
     specPattern: 'cypress/integration/**/*.feature',
     setupNodeEvents,
     excludeSpecPattern: [

@@ -6,6 +6,8 @@
   "devDependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^16.0.3",
     "@cypress/browserify-preprocessor": "^3.0.2",
+    "@types/convert-excel-to-json": "^1.7.1",
+    "@types/neat-csv": "^4.0.0",
     "cypress": "^12.9.0",
     "cypress-ag-grid": "^2.0.2",
     "cypress-iframe": "^1.0.1",
@@ -16,13 +18,16 @@
     "typescript": "^5.0.4"
   },
   "scripts": {
-    "test": "npx cypress run",
-    "headTest": "npm run test --headed",
+    "test": "npx cypress run --spec cypress/integration/**/*.feature",
+    "headTest": "npm run test --headed --browser chrome",
     "chromeTest": "npm run test --browser chrome",
-    "cloud": "npm run test --record --key bb9862d7-e9d1-469c-b32f-6ee9fcdfcdf5 --reporter mochawesome --spec cypress/integration/examples/BDD/*.feature",
+    "recordDashBoardTest": "npx cypress run --record --key c6129d05-cf01-4f20-8f77-1396edfb9483 --spec cypress/integration/examples/angularTestApp/form.feature",
     "greenKartTest": "npm run test --spec \"cypress/integration/GreenKart/*\"",
-    "tag": "npx cypress run --env tags=@healthcheck --headed --browser chrome",
-    "env": "npx cypress run --spec cypress/integration/**/*.feature"
+    "tag": "npx cypress run --env tags='@Smoke' --headed --browser chrome",
+    "env": "npx cypress run --spec cypress/integration/examples/BDD/*.feature --headed --browser chrome --env url='https://google.com'",
+    "multibrowser": "npx cypress run --spec cypress/integration/examples/angularTestApp/smartTable/webTable.feature --headed --browser chrome & npx cypress run --spec cypress/integration/examples/angularTestApp/smartTable/webTable.feature --headed --browser electron",
+    "cy:open_dev": "npx cypress open --env userName=cytest3@test.com,password=Welcome000",
+    "cy:open_process": "npx cypress open --env username=$DB_USERNAME,password=$PASSWORD"
   },
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": true,
@@ -35,5 +40,8 @@
     }
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "convert-excel-to-json": "^1.7.0"
+  }
 }
