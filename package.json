@@ -42,6 +42,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "convert-excel-to-json": "^1.7.0"
+    "@types/puppeteer": "^5.4.6",
+    "convert-excel-to-json": "^1.7.0",
+    "puppeteer": "^14.2.1"
   }
 }
